@@ -1,0 +1,32 @@
+@import "../../styles/varibles.scss";
+.App-header {
+  display: flex;
+  height: $app-header-height;
+  padding: 10px;
+  align-items: center;
+  width: 100%;
+  background-color: rgba(20, 171, 241, 0.301);
+
+  .search-box {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    img {
+      width: 15px;
+      height: 15px;
+    }
+
+    input {
+      background: transparent;
+      max-width: 350px;
+      padding: 5px;
+      border: none;
+      color: #fff;
+      border-bottom: 1px solid #fff;
+      outline: none;
+    }
+    input::placeholder {
+      color: #fff;
+    }
+  }
+}

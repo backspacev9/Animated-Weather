@@ -1,4 +1,7 @@
 import "./App.scss";
+import CurrentWeather from "./components/currentWeather";
+import ForecastWeather from "./components/forecastWeather";
+import Header from "./components/header";
 
 function App() {
   return (
@@ -6,26 +9,11 @@ function App() {
       <div className="bg-container">
         <img src="./images/bg-forest.jpg" className="bg-main" alt="" />
       </div>
-      <header className="App-header">
-        <div className="search-box">
-          <img src="./icons/search.svg" alt="search" />
-          <input type="text" placeholder="Find your City" />
-        </div>
-      </header>
-
+      <Header />
       <main>
         <div className="weather-container">
-          <div className="current-weather-block">
-            <div className="block">
-              <span className="current-temperature">11°C</span>
-              <span className="location">Vitebsk, Belarus</span>
-              <span className="date">Tuesday - 24.04.2024</span>
-            </div>
-            <div className="block">
-              <img src="./icons/clouds.svg" alt="cloud" />
-              <span className="time">9:00</span>
-            </div>
-          </div>
+          <CurrentWeather />
+          <ForecastWeather />
         </div>
       </main>
     </div>
