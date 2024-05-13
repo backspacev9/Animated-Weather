@@ -1,0 +1,26 @@
+.show-message {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 40px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  opacity: 0;
+  width: 200px;
+  height: fit-content;
+  min-height: 50px;
+  color: #f84d4d;
+  background-color: #fffffffb;
+  z-index: 1;
+  animation: movebox 0.7s linear forwards;
+}
+@keyframes movebox {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

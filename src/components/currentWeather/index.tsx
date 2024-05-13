@@ -1,10 +1,37 @@
+import {useEffect, useState} from "react";
 import "./index.scss";
+import {GetCurrentWeatherByName} from "../api";
+import {ErrorCodes} from "../../contants";
 
-function CurrentWeather() {
+interface CurrentWeatherProps {
+  handleError: (text: string) => void;
+}
+
+function CurrentWeather({handleError}: CurrentWeatherProps) {
+  const [temperature, setTemperature] = useState(0);
+
+  const getCurWeather = async () => {
+    const res = await GetCurrentWeatherByName("Vitebsk");
+
+    if (typeof res == "number") {
+      const val = res ? Object.entries(ErrorCodes).find((el) => el[0] === res.toString())?.[1] : "";
+      handleError(val ? val : "");
+    } else {
+      if (res) {
+        console.log(res);
+        setTemperature(Math.round(res?.main.temp));
+      }
+    }
+  };
+
+  useEffect(() => {
+    getCurWeather();
+  }, []);
+
   return (
     <div className="current-weather-block">
       <div className="block">
-        <span className="temperature">11°C</span>
+        <span className="temperature">{temperature}°C</span>
         <span className="feels">Feels like: 9°C</span>
         <span className="location">Vitebsk, Belarus</span>
         <span className="date">Tuesday - 24.04.24</span>
